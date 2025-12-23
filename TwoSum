@@ -1,0 +1,21 @@
+class TwoSum {
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> tempResult = new HashMap();
+
+        for(int i=0;i<nums.length;i++){
+            
+            int complement = target - nums[i];
+
+            if(tempResult.containsKey(complement))
+            {
+                return new int[]{tempResult.get(complement),i};
+            }
+
+            tempResult.put(nums[i],i);
+        }
+
+
+        return null;
+        
+    }
+}
