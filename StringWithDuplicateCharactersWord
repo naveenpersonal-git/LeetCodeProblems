@@ -1,0 +1,35 @@
+public class Main {
+    public static void main(String[] args)
+    {
+        String duplicate = "-1", str="Hello apple pie";
+        for(String eachWord : str.split(" "))
+        {
+
+            HashMap<Character, Integer> tmpMap = new HashMap<>();
+
+            for(char ch : eachWord.toCharArray())
+            {
+
+                if(!tmpMap.containsKey(ch))
+                {
+                    tmpMap.put(ch,1);
+                }
+                else{
+                    int count = tmpMap.get(ch);
+                    tmpMap.put(ch,++count);
+                }
+
+            }
+            for(int count : tmpMap.values())
+            {
+                if(count>1)
+                {
+                    duplicate = (duplicate.equals("-1"))? eachWord:duplicate+" "+eachWord;
+                    break;
+                }
+            }
+        }
+      System.out.println(duplicate);
+
+    }
+}
